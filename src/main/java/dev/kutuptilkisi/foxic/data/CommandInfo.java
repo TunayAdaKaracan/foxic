@@ -17,11 +17,11 @@ public class CommandInfo {
 
     private List<CommandInfo> sub;
 
-    public CommandInfo(Object instance, SlashCommand annotation, Method callbackFromObject, List<CommandInfo> es, List<OptionData> methodOptions) {
+    public CommandInfo(Object instance, SlashCommand annotation, Method callbackFromObject, List<CommandInfo> subInfo, List<OptionData> methodOptions) {
         this.object = instance;
         this.annotation = annotation;
         this.callback = new CallbackInfo(callbackFromObject, methodOptions);
-        this.sub = es;
+        this.sub = subInfo;
     }
 
     public Object getObject() {

@@ -188,7 +188,7 @@ public class CommandHandler extends ListenerAdapter implements ComponentHandler 
     }
 
     /*
-        Event Firing
+        Events & Event Fire
     */
 
     private Object parseOptionMapping(OptionMapping mapping){
