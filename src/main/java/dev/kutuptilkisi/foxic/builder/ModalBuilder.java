@@ -1,6 +1,7 @@
 package dev.kutuptilkisi.foxic.builder;
 
 import dev.kutuptilkisi.foxic.handler.ViewHandler;
+import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.Modal;
 import net.dv8tion.jda.api.interactions.components.text.TextInput;
 
@@ -21,6 +22,17 @@ public class ModalBuilder {
     public ModalBuilder(ViewHandler handler){
         this.handler = handler;
         fields = new ArrayList<>();
+    }
+
+    public ModalBuilder(ViewHandler handler, Modal modal){
+        this.handler = handler;
+        fields = new ArrayList<>();
+
+        this.id = modal.getId();
+        this.title = modal.getTitle();
+        for(ActionRow row : modal.getActionRows()){
+            this.fields.add((TextInput) row.getComponents().get(0));
+        }
     }
 
     public ModalBuilder setID(String id){

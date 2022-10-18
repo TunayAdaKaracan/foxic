@@ -22,6 +22,16 @@ public class ButtonBuilder {
         this.handler = handler;
     }
 
+    public ButtonBuilder(ViewHandler handler, Button button){
+        this.handler = handler;
+
+        this.style = button.getStyle();
+        this.id = button.getId();
+        this.label = button.getLabel();
+        this.emoji = button.getEmoji();
+        this.URL = button.getUrl();
+    }
+
     public ButtonBuilder setStyle(ButtonStyle style){
         this.style = style;
         return this;
@@ -53,7 +63,10 @@ public class ButtonBuilder {
     }
 
     public Button build(){
+        if(style == null || id == null){
+            throw new RuntimeException("Style and ID must be set");
+        }
         handler.listen(id, callback);
-        return Button.of(style, id, label).withEmoji(emoji).withUrl(URL);
+        return Button.of(style, id, label, emoji).withUrl(URL);
     }
 }
