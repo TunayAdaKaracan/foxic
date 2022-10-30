@@ -18,11 +18,19 @@ public class ButtonBuilder {
 
     private ViewHandler.ButtonCallback callback;
 
-    public ButtonBuilder(ViewHandler handler){
+    public static ButtonBuilder create(ViewHandler handler){
+        return new ButtonBuilder(handler);
+    }
+
+    public static ButtonBuilder create(ViewHandler handler, Button button){
+        return new ButtonBuilder(handler, button);
+    }
+
+    private ButtonBuilder(ViewHandler handler){
         this.handler = handler;
     }
 
-    public ButtonBuilder(ViewHandler handler, Button button){
+    private ButtonBuilder(ViewHandler handler, Button button){
         this.handler = handler;
 
         this.style = button.getStyle();

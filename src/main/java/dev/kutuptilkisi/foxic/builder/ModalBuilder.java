@@ -3,6 +3,7 @@ package dev.kutuptilkisi.foxic.builder;
 import dev.kutuptilkisi.foxic.handler.ViewHandler;
 import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.Modal;
+import net.dv8tion.jda.api.interactions.components.buttons.Button;
 import net.dv8tion.jda.api.interactions.components.text.TextInput;
 
 import java.util.ArrayList;
@@ -19,12 +20,20 @@ public class ModalBuilder {
 
     private ViewHandler.ModalCallback callback;
 
-    public ModalBuilder(ViewHandler handler){
+    public static ModalBuilder create(ViewHandler handler){
+        return new ModalBuilder(handler);
+    }
+
+    public static ModalBuilder create(ViewHandler handler, Modal modal){
+        return new ModalBuilder(handler, modal);
+    }
+
+    private ModalBuilder(ViewHandler handler){
         this.handler = handler;
         fields = new ArrayList<>();
     }
 
-    public ModalBuilder(ViewHandler handler, Modal modal){
+    private ModalBuilder(ViewHandler handler, Modal modal){
         this.handler = handler;
         fields = new ArrayList<>();
 
