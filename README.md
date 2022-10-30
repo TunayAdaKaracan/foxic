@@ -5,9 +5,9 @@
 
 Foxic is a simple library with purpose of simplifying process of handling commands and components.
 
-- Type some Markdown on the left
-- See HTML in the right
-- ✨Magic ✨
+- Not overkill
+- User friendly
+- Non-limiting
 
 ## Features
 
