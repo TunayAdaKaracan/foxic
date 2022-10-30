@@ -75,6 +75,12 @@ public class ButtonBuilder {
             throw new RuntimeException("Style and ID must be set");
         }
         handler.listen(id, callback);
-        return Button.of(style, id, label, emoji).withUrl(URL);
+        Button b = Button.of(style, id, label, emoji);
+
+        if(URL != null){
+            b = b.withUrl(URL);
+        }
+
+        return b;
     }
 }
